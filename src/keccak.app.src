@@ -1,0 +1,6 @@
+{application, keccak, [
+    {description, "Keccak (SHA-3)"},
+    {vsn, git},
+    {registered, []},
+    {applications, [kernel]}
+]}.
