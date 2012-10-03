@@ -17,7 +17,7 @@ hash512(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
     }
     enif_alloc_binary(64, &hash);
     Hash(512, (const BitSequence *) message.data,
-         (DataLength) message.size, (BitSequence *) hash.data);
+         (DataLength) message.size * 8ULL, (BitSequence *) hash.data);
 
     return enif_make_binary(env, &hash);
 }
