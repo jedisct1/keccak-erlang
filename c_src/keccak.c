@@ -11,7 +11,7 @@ hash512(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
     if (argc != 1) {
         return enif_make_badarg(env);
     }
-    if (enif_inspect_binary(env, argv[1], &message) == 0 ||
+    if (enif_inspect_binary(env, argv[0], &message) == 0 ||
         message.size == 0U) {
         return enif_make_badarg(env);
     }
@@ -23,7 +23,7 @@ hash512(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 }
 
 static ErlNifFunc nif_funcs[] = {
-    { "hash512", 2, hash512 }
+    { "hash512", 1, hash512 }
 };
 
-ERL_NIF_INIT(kekkak, nif_funcs, NULL, NULL, NULL, NULL)
+ERL_NIF_INIT(keccak, nif_funcs, NULL, NULL, NULL, NULL)
